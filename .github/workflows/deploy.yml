@@ -1,0 +1,35 @@
+name: Deploy via SSH
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Save SSH key
+        run: |
+          echo "${{ secrets.HOSTINGER_SSH_KEY }}" > /tmp/ssh_key
+          chmod 600 /tmp/ssh_key
+
+      - name: Copy files via rsync (excluding database.sqlite)
+        run: |
+          rsync -avz --delete --exclude='database/database.sqlite' -e "ssh -i /tmp/ssh_key -p ${{ secrets.HOSTINGER_PORT }} -o StrictHostKeyChecking=no" ./ ${{ secrets.HOSTINGER_USER }}@${{ secrets.HOSTINGER_HOST }}:~/${{ secrets.HOSTINGER_FOLDER }}/
+
+      - name: Adjust public_html to point to public
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.HOSTINGER_HOST }}
+          username: ${{ secrets.HOSTINGER_USER }}
+          key: ${{ secrets.HOSTINGER_SSH_KEY }}
+          port: ${{ secrets.HOSTINGER_PORT }}
+          script: |
+            rm -rf ~/${{ secrets.HOSTINGER_FOLDER }}/public_html
+            ln -s ~/${{ secrets.HOSTINGER_FOLDER }}/public ~/${{ secrets.HOSTINGER_FOLDER }}/public_html
+
+      - name: Remove temporary SSH key
+        run: rm -f /tmp/ssh_key
