@@ -1,4 +1,4 @@
-<div class="grid grid-cols-2 gap-4">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
     <div class="border border-stone-800 rounded h-fit">
         <h1 class="text-lg font-bold border-b border-stone-800 p-4">
             Sign In
@@ -23,6 +23,7 @@
                 <input
                         type="email"
                         name="email"
+                        id="email"
                         required
                         class="border-stone-800 border-2 rounded-md bg-stone-900 text-sm focus:outline-none px-3 py-2 w-full placeholder-stone-500"
                         placeholder="email@mail.com"
@@ -34,6 +35,7 @@
                 <input
                         type="password"
                         name="password"
+                        id="password"
                         required
                         class="border-stone-800 border-2 rounded-md bg-stone-900 text-sm focus:outline-none px-3 py-2 w-full placeholder-stone-500"
                         placeholder="email@mail.com"
@@ -73,6 +75,7 @@
                 <input
                         type="text"
                         name="name"
+                        id="name"
                         required
                         class="border-stone-800 border-2 rounded-md bg-stone-900 text-sm focus:outline-none px-3 py-2 w-full placeholder-stone-500"
                         placeholder="John Doe"
@@ -84,6 +87,7 @@
                 <input
                         type="email"
                         name="email"
+                        id="email"
                         required
                         class="border-stone-800 border-2 rounded-md bg-stone-900 text-sm focus:outline-none px-3 py-2 w-full placeholder-stone-500"
                         placeholder="email@mail.com"
@@ -91,10 +95,11 @@
             </div>
 
             <div class="flex flex-col gap-2">
-                <label for="email" class="text-stone-400">Confirm Email</label>
+                <label for="email-confirmation" class="text-stone-400">Confirm Email</label>
                 <input
                         type="email"
                         name="email_confirmation"
+                        id="email-confirmation"
                         required
                         class="border-stone-800 border-2 rounded-md bg-stone-900 text-sm focus:outline-none px-3 py-2 w-full placeholder-stone-500"
                         placeholder="email@mail.com"
@@ -106,6 +111,7 @@
                 <input
                         type="password"
                         name="password"
+                        id="password"
                         required
                         class="border-stone-800 border-2 rounded-md bg-stone-900 text-sm focus:outline-none px-3 py-2 w-full placeholder-stone-500"
                 >
