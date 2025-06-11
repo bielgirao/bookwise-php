@@ -15,7 +15,7 @@
         <?php endif; ?>
         
         <?php foreach($books as $book) {
-            require '../views/partials/_book.php';
+            require __DIR__ . '/../views/partials/_book.php';
         }?>
     
     </div>
@@ -24,6 +24,6 @@
             Add a new Book
         </h3>
 
-        <?php require_once  '../views/partials/_add-book-form.php'; ?>
+        <?php require_once __DIR__ . '/../views/partials/_add-book-form.php'; ?>
     </div>
 </div>

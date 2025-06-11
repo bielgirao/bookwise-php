@@ -32,7 +32,7 @@
         foreach ($data as $key => $value) {
             $$key = $value;
         }
-        require "views/template/app.php";
+        require __DIR__ . "/views/template/app.php";
     }
     
     function flash(): Flash {
@@ -40,7 +40,7 @@
     }
     
     function config($key = null) {
-        $config = require 'config.php';
+        $config = require __DIR__ . '/config.php';
         if(strlen($key) > 0) {
             return $config[$key];
         }

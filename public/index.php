@@ -1,13 +1,13 @@
 <?php
     
-    require '../models/Book.php';
-    require '../models/User.php';
-    require '../models/Review.php';
+    require __DIR__ . '/../models/Book.php';
+    require __DIR__ . '/../models/User.php';
+    require __DIR__ . '/../models/Review.php';
     
     session_start();
     
-    require '../services/Flash.php';
-    require '../functions.php';
-    require '../services/Database.php';
-    require '../services/Validation.php';
-    require '../routes.php';
+    require __DIR__ . '/../services/Flash.php';
+    require __DIR__ . '/../functions.php';
+    require __DIR__ . '/../services/Database.php';
+    require __DIR__ . '/../services/Validation.php';
+    require __DIR__ . '/../routes.php';

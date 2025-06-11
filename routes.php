@@ -7,4 +7,4 @@
         abort(404);
     };
     
-    require "controllers/{$controller}.controller.php";
+    require __DIR__ . "/controllers/{$controller}.controller.php";
